@@ -61,6 +61,8 @@ if input_id:
         ))
 
         fig.update_layout(
+            width=200,  # or any size in pixels
+            height=100,
             margin=dict(t=0, b=0, l=0, r=0),
             paper_bgcolor="#2c3e50",  # optional dark background
             font=dict(color="white")
