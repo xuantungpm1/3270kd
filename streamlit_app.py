@@ -22,15 +22,15 @@ st.dataframe(df)
 st.title("🔍 Search by ID")
 
 # Input field for ID
-search_id = st.text_input("Enter ID")
+input_id = st.text_input("Enter ID")
 
 # Check and display result
-if search_id:
-    # Convert to string for comparison
-    match = df[df["ID"].astype(str) == search_id.strip()]
-    
-    if not match.empty:
-        st.success("🎉 Match found!")
-        st.dataframe(match)
+if input_id:
+    result = df[df["ID"].astype(str) == input_id]
+    if not result.empty:
+        row = result.iloc[0]  # First matching row
+        st.markdown("### 🎯 Result")
+        for col, val in row.items():
+            st.markdown(f"**{col}**: {val}")
     else:
-        st.warning("⚠️ No match found.")
+        st.warning("❌ No matching ID found.")
