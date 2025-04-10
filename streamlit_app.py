@@ -11,7 +11,7 @@ creds_json = json.loads(json.dumps(creds_dict))  # convert to dict
 
 # Set up credentials
 scope = ["https://spreadsheets.google.com/feeds", "https://www.googleapis.com/auth/drive"]
-credentials = ServiceAccountCredentials.from_json_keyfile_dict(creds_json, scope)
+credentials = ServiceAccountCredentials.from_json_keyfile_dict(st.secrets["gcp_service_account"], scope)
 
 client = gspread.authorize(credentials)
 
