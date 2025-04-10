@@ -47,15 +47,15 @@ if input_id:
             value=dkp_rate,
             title={'text': "DKP rate"},
             gauge={
-                'axis': {'range': [0, 100]},
+                'axis': {'range': [0, 200]},
                 'bar': {'color': "#00CC96"},
                 'bgcolor': "darkgray",
                 'borderwidth': 1,
                 'bordercolor': "gray",
                 'steps': [
-                    {'range': [0, 50], 'color': "#FF4B4B"},
-                    {'range': [50, 80], 'color': "#FFA500"},
-                    {'range': [80, 100], 'color': "#00CC96"}
+                    {'range': [0, 80], 'color': "#FF4B4B"},
+                    {'range': [80, 100], 'color': "#FFA500"},
+                    {'range': [100, 200], 'color': "#00CC96"}
                 ],
             }
         ))
@@ -78,15 +78,15 @@ if input_id:
             value=deads_rate,
             title={'text': "DKP rate"},
             gauge={
-                'axis': {'range': [0, 100]},
+                'axis': {'range': [0, 200]},
                 'bar': {'color': "#00CC96"},
                 'bgcolor': "darkgray",
                 'borderwidth': 1,
                 'bordercolor': "gray",
                 'steps': [
-                    {'range': [0, 50], 'color': "#FF4B4B"},
-                    {'range': [50, 80], 'color': "#FFA500"},
-                    {'range': [80, 100], 'color': "#00CC96"}
+                    {'range': [0, 80], 'color': "#FF4B4B"},
+                    {'range': [80, 100], 'color': "#FFA500"},
+                    {'range': [100, 200], 'color': "#00CC96"}
                 ],
             }
         ))
