@@ -11,6 +11,9 @@ credentials = ServiceAccountCredentials.from_json_keyfile_dict(
 
 client = gspread.authorize(credentials)
 sheet = client.open("KD3270 data sheet").sheet1
+
+# Streamlit UI
+st.title("KD3270 KVK7 stats")
 df = pd.DataFrame(sheet.get_all_records())
 
 st.dataframe(df)
