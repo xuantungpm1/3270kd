@@ -10,7 +10,7 @@ credentials = ServiceAccountCredentials.from_json_keyfile_dict(
 )
 
 client = gspread.authorize(credentials)
-sheet = client.open("Your Google Sheet Name").sheet1
+sheet = client.open("KD3270 data sheet").sheet1
 df = pd.DataFrame(sheet.get_all_records())
 
 st.dataframe(df)
