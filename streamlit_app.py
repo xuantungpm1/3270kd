@@ -38,35 +38,36 @@ if input_id:
         cols = st.columns(2)
         for col in columns_to_display:
             st.markdown(f"**{col}**: {row[col]}")
+        
+        # Example DKP value
+        dkp_rate = row['DKP rate']  # Replace with your actual value
+
+        fig = go.Figure(go.Indicator(
+            mode="gauge+number",
+            value=dkp_rate,
+            title={'text': "DKP rate"},
+            gauge={
+                'axis': {'range': [0, 100]},
+                'bar': {'color': "#00CC96"},
+                'bgcolor': "darkgray",
+                'borderwidth': 1,
+                'bordercolor': "gray",
+                'steps': [
+                    {'range': [0, 50], 'color': "#FF4B4B"},
+                    {'range': [50, 80], 'color': "#FFA500"},
+                    {'range': [80, 100], 'color': "#00CC96"}
+                ],
+            }
+        ))
+
+        fig.update_layout(
+            margin=dict(t=0, b=0, l=0, r=0),
+            paper_bgcolor="#2c3e50",  # optional dark background
+            font=dict(color="white")
+        )
+
+        st.plotly_chart(fig)
     else:
         st.warning("❌ No matching ID found.")
 
 
-# Example DKP value
-dkp_rate = 75  # Replace with your actual value
-
-fig = go.Figure(go.Indicator(
-    mode="gauge+number",
-    value=dkp_rate,
-    title={'text': "DKP rate"},
-    gauge={
-        'axis': {'range': [0, 100]},
-        'bar': {'color': "#00CC96"},
-        'bgcolor': "darkgray",
-        'borderwidth': 1,
-        'bordercolor': "gray",
-        'steps': [
-            {'range': [0, 50], 'color': "#FF4B4B"},
-            {'range': [50, 80], 'color': "#FFA500"},
-            {'range': [80, 100], 'color': "#00CC96"}
-        ],
-    }
-))
-
-fig.update_layout(
-    margin=dict(t=0, b=0, l=0, r=0),
-    paper_bgcolor="#2c3e50",  # optional dark background
-    font=dict(color="white")
-)
-
-st.plotly_chart(fig)
