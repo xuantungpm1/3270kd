@@ -68,7 +68,7 @@ if input_id:
             font=dict(color="white")
         )
 
-        st.plotly_chart(fig)
+        st.plotly_chart(fig, use_container_width=False)
     else:
         st.warning("❌ No matching ID found.")
 
