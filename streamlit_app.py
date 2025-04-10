@@ -111,12 +111,12 @@ if input_id:
 
         # st.plotly_chart(fig1, use_container_width=False, key="deads_chart")
 
-        col1, col2 = st.columns(2)
-        with col1:
+        col3, col4 = st.columns(2)
+        with col3:
             st.markdown("### DKP rate")
             st.plotly_chart(fig, use_container_width=True, key="dkp_chart")
 
-        with col2:
+        with col4:
             st.markdown("### Deads rate")
             st.plotly_chart(fig1, use_container_width=True, key="deads_chart")
     else:
