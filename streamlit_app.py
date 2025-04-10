@@ -33,11 +33,22 @@ if input_id:
 
         # 🎯 Only show these columns
         columns_to_display = ["ID", "Name", "Alliance", "Power", "Target DKP", "Target Deads", "Score", "Rank"]
+        left_cols = ["ID", "Name", "Alliance", "Power"]
+        right_cols = ["Target DKP", "Target Deads", "Score", "Rank"]
 
         st.markdown("### 🧾 Result")
-        cols = st.columns(2)
-        for col in columns_to_display:
-            st.markdown(f"**{col}**: {row[col]}")
+        # cols = st.columns(2)
+        # for col in columns_to_display:
+        #     st.markdown(f"**{col}**: {row[col]}")
+
+        col1, col2 = st.columns(2)
+        with col1:
+            for col in left_cols:
+                st.markdown(f"**{col}**: {row[col]}")
+        
+        with col2:
+            for col in right_cols:
+                st.markdown(f"**{col}**: {row[col]}")
         
         # Example DKP value
         dkp_rate = row['DKP rate']  # Replace with your actual value
@@ -76,7 +87,7 @@ if input_id:
         fig1 = go.Figure(go.Indicator(
             mode="gauge+number",
             value=deads_rate,
-            title={'text': "DKP rate"},
+            title={'text': "Deads rate"},
             gauge={
                 'axis': {'range': [0, 200]},
                 'bar': {'color': "#00CC96"},
