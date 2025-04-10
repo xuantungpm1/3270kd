@@ -68,7 +68,7 @@ if input_id:
             font=dict(color="white")
         )
         st.title("DKP rate")
-        st.plotly_chart(fig, use_container_width=False)
+        st.plotly_chart(fig, use_container_width=False, key="dkp_chart")
 
         # Example DKP value
         deads_rate = row['Deads rate']  # Replace with your actual value
@@ -100,7 +100,7 @@ if input_id:
         )
 
         st.title("Deads rate")
-        st.plotly_chart(fig1, use_container_width=False)
+        st.plotly_chart(fig1, use_container_width=False, key="deads_chart")
     else:
         st.warning("❌ No matching ID found.")
 
