@@ -35,7 +35,7 @@ if input_id:
 
         st.markdown("### 🧾 Result")
         cols = st.columns(2)
-        for col, val in enumerate(columns_to_display):
-            st.markdown(f"**{col}**: {val}")
+        for col in columns_to_display:
+            st.markdown(f"**{col}**: {row[col]}")
     else:
         st.warning("❌ No matching ID found.")
