@@ -24,13 +24,20 @@ st.title("🔍 Search by ID")
 # Input field for ID
 input_id = st.text_input("Enter ID")
 
-# Check and display result
+# --- Filter and Show Specific Columns ---
 if input_id:
     result = df[df["ID"].astype(str) == input_id]
     if not result.empty:
-        row = result.iloc[0]  # First matching row
-        st.markdown("### 🎯 Result")
-        for col, val in row.items():
-            st.markdown(f"**{col}**: {val}")
+        row = result.iloc[0]
+
+        # 🎯 Only show these columns
+        columns_to_display = ["ID", "Name", "Alliance", "Power", "Target DKP", "Target Deads", "Score", "Rank"]
+
+        st.markdown("### 🧾 Result")
+        cols = st.columns(2)
+        for i, col in enumerate(columns_to_display):
+            with cols[i % 2]:
+                st.markdown(f"**{col}**")
+                st.markdown(f"`{row[col]}`")
     else:
         st.warning("❌ No matching ID found.")
