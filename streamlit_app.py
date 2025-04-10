@@ -72,8 +72,8 @@ if input_id:
         ))
 
         fig.update_layout(
-            width=400,  # or any size in pixels
-            height=300,
+            width=300,  # or any size in pixels
+            height=200,
             margin=dict(t=0, b=0, l=0, r=0),
             paper_bgcolor="#2c3e50",  # optional dark background
             font=dict(color="white")
@@ -102,8 +102,8 @@ if input_id:
         ))
 
         fig1.update_layout(
-            width=400,  # or any size in pixels
-            height=300,
+            width=300,  # or any size in pixels
+            height=200,
             margin=dict(t=0, b=0, l=0, r=0),
             paper_bgcolor="#2c3e50",  # optional dark background
             font=dict(color="white")
@@ -111,12 +111,12 @@ if input_id:
 
         # st.plotly_chart(fig1, use_container_width=False, key="deads_chart")
 
-        col3, col4 = st.columns(2)
-        with col3:
+        col1, col2 = st.columns(2)
+        with col1:
             st.markdown("### DKP rate")
             st.plotly_chart(fig, use_container_width=True, key="dkp_chart")
 
-        with col4:
+        with col2:
             st.markdown("### Deads rate")
             st.plotly_chart(fig1, use_container_width=True, key="deads_chart")
     else:
