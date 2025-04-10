@@ -61,8 +61,8 @@ if input_id:
         ))
 
         fig.update_layout(
-            width=200,  # or any size in pixels
-            height=100,
+            width=400,  # or any size in pixels
+            height=300,
             margin=dict(t=0, b=0, l=0, r=0),
             paper_bgcolor="#2c3e50",  # optional dark background
             font=dict(color="white")
@@ -92,8 +92,8 @@ if input_id:
         ))
 
         fig1.update_layout(
-            width=200,  # or any size in pixels
-            height=100,
+            width=400,  # or any size in pixels
+            height=300,
             margin=dict(t=0, b=0, l=0, r=0),
             paper_bgcolor="#2c3e50",  # optional dark background
             font=dict(color="white")
