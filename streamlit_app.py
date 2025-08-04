@@ -19,6 +19,94 @@ df = pd.DataFrame(sheet.get_all_records())
 
 st.dataframe(df)
 
+#KPI target
+st.set_page_config(page_title="DKP Tables", layout="centered")
+
+# --- TABLE 1: DKP-Deads ratio ---
+st.markdown("<h2 style='text-align: center; color: white; background-color: black;'>DKP-Deads ratio</h2>", unsafe_allow_html=True)
+
+deads_data = {
+    "POWER RANGE": [
+        "20.000.000 - 30.000.000",
+        "30.000.001 - 40.000.000",
+        "40.000.001 - 50.000.000",
+        "50.000.001 - 60.000.000",
+        "60.000.001 - 70.000.000",
+        "70.000.001 - 80.000.000",
+        "80.000.001 - 85.000.000",
+        "85.000.001 - 90.000.000",
+        "90.000.001 - 100.000.000",
+        "100.000.001 - MORE"
+    ],
+    "GOAL": [
+        "250.000",
+        "300.000",
+        "400.000",
+        "550.000",
+        "650.000",
+        "750.000",
+        "900.000",
+        "1.250.000",
+        "1.500.000",
+        "2.000.000"
+    ]
+}
+deads_df = pd.DataFrame(deads_data)
+st.table(deads_df)
+
+# --- TABLE 2: DKP-Power-ratio ---
+st.markdown("<h2 style='text-align: center; color: white; background-color: black;'>DKP-Power-ratio</h2>", unsafe_allow_html=True)
+
+power_data = {
+    "POWER RANGE": [
+        "1 - 49.999.999",
+        "50.000.000 - 79.999.999",
+        "80.000.000 - UPWARD"
+    ],
+    "% GOAL": [
+        "15,0%",
+        "20,0%",
+        "35,0%"
+    ],
+    "CATEGORY": [
+        "<span style='color:green'><b>ELITE</b></span>",
+        "<span style='color:blue'><b>EPIC</b></span>",
+        "<span style='color:orange'><b>LEGENDARY</b></span>"
+    ]
+}
+power_df = pd.DataFrame(power_data)
+
+# Render HTML table with colors
+st.markdown("""
+<table style='width:100%; border-collapse: collapse; text-align: center;'>
+    <thead style='background-color: black; color: white;'>
+        <tr>
+            <th>POWER RANGE</th>
+            <th>% GOAL</th>
+            <th>CATEGORY</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr><td>1 - 49.999.999</td><td>15,0%</td><td><span style='color:green'><b>ELITE</b></span></td></tr>
+        <tr><td>50.000.000 - 79.999.999</td><td>20,0%</td><td><span style='color:blue'><b>EPIC</b></span></td></tr>
+        <tr><td>80.000.000 - UPWARD</td><td>35,0%</td><td><span style='color:orange'><b>LEGENDARY</b></span></td></tr>
+    </tbody>
+</table>
+""", unsafe_allow_html=True)
+
+html_content = """
+<div><b><font style="font-size: 36px;">So how to achieve DKP?&nbsp;</font></b><br></div>
+<div><font style="font-size: 20px;" color="#81c784">- T4 kills: 1 point per troop<br></font></div>
+<div><font style="font-size: 20px;" color="#81c784">- T5 kills: 2 points per troop</font></div>
+<div><font style="font-size: 20px;" color="#81c784">- Dead troops: 3 points per T4/5 troop.&nbsp;</font></div>
+<div><font style="font-size: 20px;"><br></font></div>
+<div><font style="font-size: 20px;">No points for T3 troop or lower</font></div>
+<div><font style="font-size: 20px;">Dead troops target (T4/5 only):</font></div>
+<div><font style="font-size: 20px;"><i>You are required to get both kills and dead troops in order to meet your DKP. From the below calculation, you will know how many kills or dead troops will enable you to achieve your target:</i></font></div>
+"""
+
+st.markdown(html_content, unsafe_allow_html=True)
+
 # Streamlit UI
 st.title("🔍 Search by ID")
 
