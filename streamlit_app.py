@@ -122,7 +122,7 @@ if input_id:
         # 🎯 Only show these columns
         columns_to_display = ["ID", "Name", "Alliance", "Power", "Target DKP", "Target Deads", "Score", "Rank"]
         left_cols = ["ID", "Name", "Alliance", "Power"]
-        right_cols = ["Target DKP", "Target Deads", "KP gained", "Deads gained", "Score", "Rank"]
+        right_cols = ["Target DKP", "Target Deads", "KP gained", "Deads gained", "T4 Kills gained", "T5 Kills gained", "Score", "Rank"]
 
         st.markdown("### 🧾 Result")
         # cols = st.columns(2)
