@@ -14,7 +14,7 @@ client = gspread.authorize(credentials)
 sheet = client.open("KD3270 data sheet").sheet1
 
 # Streamlit UI
-st.title("KD3270 KVK stats")
+st.title("KD3270 KVK stats (26/08/2025)")
 df = pd.DataFrame(sheet.get_all_records())
 
 st.dataframe(df)
@@ -124,7 +124,7 @@ if input_id:
         left_cols = ["ID", "Name", "Alliance", "Power"]
         right_cols = ["Target DKP", "Target Deads", "KP gained", "Deads gained", "T4 Kills gained", "T5 Kills gained", "Score", "Rank"]
 
-        st.markdown("### 🧾 Result")
+        st.markdown("### 🧾 Result(26/08/2025)")
         # cols = st.columns(2)
         # for col in columns_to_display:
         #     st.markdown(f"**{col}**: {row[col]}")
