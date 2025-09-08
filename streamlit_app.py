@@ -4,6 +4,8 @@ from oauth2client.service_account import ServiceAccountCredentials
 import pandas as pd
 import plotly.graph_objects as go
 
+date = "07/09/2025"
+
 scope = ["https://spreadsheets.google.com/feeds", "https://www.googleapis.com/auth/drive"]
 credentials = ServiceAccountCredentials.from_json_keyfile_dict(
     st.secrets["gcp_service_account"],
@@ -14,7 +16,7 @@ client = gspread.authorize(credentials)
 sheet = client.open("KD3270 data sheet").sheet1
 
 # Streamlit UI
-st.title("KD3270 KVK stats (26/08/2025)")
+st.title("KD3270 KVK stats $date")
 df = pd.DataFrame(sheet.get_all_records())
 
 st.dataframe(df)
