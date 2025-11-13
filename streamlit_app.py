@@ -122,8 +122,8 @@ if input_id:
         row = result.iloc[0]
 
         # 🎯 Only show these columns
-        columns_to_display = ["ID", "Name", "Alliance", "Power", "Target DKP", "Target Deads", "Score", "Rank"]
-        left_cols = ["ID", "Name", "Alliance", "Power"]
+        columns_to_display = ["ID", "Name", "Power", "Target DKP", "Target Deads", "Score", "Rank"]
+        left_cols = ["ID", "Name", "Power"]
         right_cols = ["Target DKP", "Target Deads", "KP gained", "Deads gained", "T4 Kills gained", "T5 Kills gained", "Score", "Rank"]
 
         st.markdown(f"### 🧾 Result({date})")
