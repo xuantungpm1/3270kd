@@ -13,11 +13,11 @@ credentials = ServiceAccountCredentials.from_json_keyfile_dict(
 )
 
 client = gspread.authorize(credentials)
-sheet = client.open("KD3270 data sheet").sheet1
+sheet = client.open("KD3270 data sheet")
 
 # Streamlit UI
 st.title(f"KD3270 KVK stats {date}")
-df = pd.DataFrame(sheet.get_all_records())
+df = pd.DataFrame(sheet.worksheet("data").get_all_records())
 
 st.dataframe(df)
 
@@ -96,11 +96,17 @@ st.markdown("""
 </table>
 """, unsafe_allow_html=True)
 
+df_point = pd.DataFrame(sheet.worksheet("point_table").get_all_records())
+
+t4_point = df_point.loc[df_point["Type"] == "T4", "Points"].iloc[0]
+t5_point = df_point.loc[df_point["Type"] == "T5", "Points"].iloc[0]
+dead_point = df_point.loc[df_point["Type"] == "Dead", "Points"].iloc[0]
+
 html_content = """
 <div><b><font style="font-size: 36px;">So how to achieve DKP?&nbsp;</font></b><br></div>
-<div><font style="font-size: 20px;" color="#81c784">- T4 kills: 1 point per troop<br></font></div>
-<div><font style="font-size: 20px;" color="#81c784">- T5 kills: 2 points per troop</font></div>
-<div><font style="font-size: 20px;" color="#81c784">- Dead troops: 3 points per T4/5 troop.&nbsp;</font></div>
+<div><font style="font-size: 20px;" color="#81c784">- T4 kills: {t4_point} points per troop<br></font></div>
+<div><font style="font-size: 20px;" color="#81c784">- T5 kills: {t5_point} points per troop</font></div>
+<div><font style="font-size: 20px;" color="#81c784">- Dead troops: {dead_point} points per T4/5 troop.&nbsp;</font></div>
 <div><font style="font-size: 20px;"><br></font></div>
 <div><font style="font-size: 20px;">No points for T3 troop or lower</font></div>
 <div><font style="font-size: 20px;">Dead troops target (T4/5 only):</font></div>
