@@ -102,15 +102,23 @@ t4_point = df_point.loc[df_point["Type"] == "T4", "Points"].iloc[0]
 t5_point = df_point.loc[df_point["Type"] == "T5", "Points"].iloc[0]
 dead_point = df_point.loc[df_point["Type"] == "Dead", "Points"].iloc[0]
 
-html_content = """
+html_content = f"""
 <div><b><font style="font-size: 36px;">So how to achieve DKP?&nbsp;</font></b><br></div>
-<div><font style="font-size: 20px;" color="#81c784">- T4 kills: {t4_point} points per troop<br></font></div>
-<div><font style="font-size: 20px;" color="#81c784">- T5 kills: {t5_point} points per troop</font></div>
+
+<div><font style="font-size: 20px;" color="#81c784">- T4 kills: {t4_point} point per troop<br></font></div>
+<div><font style="font-size: 20px;" color="#81c784">- T5 kills: {t5_point} point per troop</font></div>
 <div><font style="font-size: 20px;" color="#81c784">- Dead troops: {dead_point} points per T4/5 troop.&nbsp;</font></div>
+
 <div><font style="font-size: 20px;"><br></font></div>
+
 <div><font style="font-size: 20px;">No points for T3 troop or lower</font></div>
 <div><font style="font-size: 20px;">Dead troops target (T4/5 only):</font></div>
-<div><font style="font-size: 20px;"><i>You are required to get both kills and dead troops in order to meet your DKP. From the below calculation, you will know how many kills or dead troops will enable you to achieve your target:</i></font></div>
+
+<div><font style="font-size: 20px;">
+<i>You are required to get both kills and dead troops in order to meet your DKP. 
+From the below calculation, you will know how many kills or dead troops will enable you 
+to achieve your target:</i>
+</font></div>
 """
 
 st.markdown(html_content, unsafe_allow_html=True)
